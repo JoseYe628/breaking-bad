@@ -1,22 +1,22 @@
 
-import {BrowserRouter,  Routes, Route } from 'react-router-dom'
+import {useReducer} from 'react';
+import {AuthContext} from './auth/AuthContext';
+import {authReducer} from './auth/authReducer';
+import {LoginRouter} from './routers/LoginRouter';
 
-import {Navbar} from './components/components';
-import {HomePage, BreakingPage, BetterPage, CharacterInfoPage} from './pages/pages';
-
+const init = () => {
+  return JSON.parse(localStorage.getItem('user')) || { logged: false };
+}
 
 function App() {
+
+  const [user, dispatch] = useReducer(authReducer, {}, init);
+
   return (
     <>
-      <BrowserRouter>
-        <Navbar/>
-        <Routes>
-          <Route path='/' element={<HomePage/>} />
-          <Route path='/breaking' element={<BreakingPage/>} />
-          <Route path='/better' element={<BetterPage/>} />
-          <Route path='/character/:id' element={<CharacterInfoPage/>} />
-        </Routes>
-      </BrowserRouter>
+      <AuthContext.Provider value={{user, dispatch}}>
+        <LoginRouter/>
+      </AuthContext.Provider>
     </>
   );
 }

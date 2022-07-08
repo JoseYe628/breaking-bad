@@ -8,7 +8,10 @@ export const useForm = (initialValue) => {
   const [data, loading, error] = useFetch(url) 
 
   const handleChange = ({target}) => {
-    setValue(target.value)
+    setValue({
+      ...value,
+      [target.name]: target.value
+    })
   }
 
   const handleInput = (e) => {

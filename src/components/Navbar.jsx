@@ -1,7 +1,13 @@
 
+import { useContext } from 'react'
 import { NavLink } from 'react-router-dom'
+import { AuthContext } from '../auth/AuthContext'
+
 
 export const Navbar = () => {
+
+  const { user } = useContext(AuthContext)
+
   return (
     <div className="bg-breaking-200 h-18 p-5 pl-10 flex items-center justify-start">
       <div className="w-28 text-white font-kdam hover:font-bold text-center ">Breaking Bad</div>
@@ -28,7 +34,8 @@ export const Navbar = () => {
       </ul>
 
       <span className="flex-1"></span>
-      <div className="text-white hover:text-slate-400">José Yaniez</div>
+      <div className="text-white hover:text-slate-400">{user.username}</div>
+      <button className="p-2 ml-8 box-content text-white border border-white rounded hover:text-gray-300">Logout</button>
     </div>
   )
 }

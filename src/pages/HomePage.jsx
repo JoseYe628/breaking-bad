@@ -6,6 +6,7 @@ export const HomePage = () => {
 
   const { handleChange, handleInput, data, error, loading } = useForm('');
 
+
   return (
     <div>
       <div className="">

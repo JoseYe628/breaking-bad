@@ -1,11 +1,13 @@
+import React, {useContext} from 'react'
 import {useFetch} from "../hooks/useFetch"
 import { CharacterCard } from '../components/CharacterCard'
+import {AuthContext} from '../auth/AuthContext'
 
 export const BreakingPage = () => {
 
-  const [data, loading, error] = useFetch('https://www.breakingbadapi.com/api/characters?category=Breaking%20Bad');
+  const uri = 'https://www.breakingbadapi.com/api/characters?category=Breaking%20Bad';
 
-  //console.log(data);
+  const [data, loading, error] = useFetch(uri);
 
   return (
     <div className="container mx-auto my-4">
@@ -23,7 +25,6 @@ export const BreakingPage = () => {
               </div> 
             )
       }
-      
     </div>
   )
 }
