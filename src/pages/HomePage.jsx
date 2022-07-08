@@ -21,6 +21,8 @@ export const HomePage = () => {
           type='text'
           placeholder="Buscar"
           className="h-12 w-[70%] px-6 border-4 border-breaking-200 rounded-full focus:outline-none font-kdam"
+          name='character'
+          autoComplete="off"
           onChange={ handleChange }
           onKeyDown={ handleInput }
         />

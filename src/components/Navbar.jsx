@@ -1,12 +1,23 @@
 
 import { useContext } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { AuthContext } from '../auth/AuthContext'
+import {types} from '../types/types'
 
 
 export const Navbar = () => {
 
-  const { user } = useContext(AuthContext)
+  const navigate = useNavigate()
+  const { user, dispatch } = useContext(AuthContext)
+
+  const handleLogOut = (e) => {
+    e.preventDefault()
+    dispatch({
+      type: types.logout,
+    })
+    navigate('/login')
+    localStorage.removeItem('user')
+  }
 
   return (
     <div className="bg-breaking-200 h-18 p-5 pl-10 flex items-center justify-start">
@@ -35,7 +46,7 @@ export const Navbar = () => {
 
       <span className="flex-1"></span>
       <div className="text-white hover:text-slate-400">{user.username}</div>
-      <button className="p-2 ml-8 box-content text-white border border-white rounded hover:text-gray-300">Logout</button>
+      <button onClick={handleLogOut} className="p-2 ml-8 box-content text-white border border-white rounded hover:text-gray-300">Logout</button>
     </div>
   )
 }

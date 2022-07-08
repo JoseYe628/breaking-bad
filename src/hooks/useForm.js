@@ -16,7 +16,8 @@ export const useForm = (initialValue) => {
 
   const handleInput = (e) => {
     if(e.key == 'Enter'){
-      let name = value.replace(/ /g, '%20')
+      console.log(value)
+      let name = value.character.replace(/ /g, '%20')
       setUrl(`https://www.breakingbadapi.com/api/characters?name=${name}`)
     }
   }

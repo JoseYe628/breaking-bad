@@ -2,8 +2,8 @@
 import {useContext} from 'react'
 import {useNavigate} from 'react-router-dom'
 
-import {AuthContext} from '../auth/AuthContext'
 import {useForm} from '../hooks/useForm'
+import {AuthContext} from '../auth/AuthContext'
 import { types } from '../types/types'
 
 const initialValue = {
@@ -13,7 +13,7 @@ const initialValue = {
 
 export const LoginPage = () => {
 
-  const { user, dispatch } = useContext(AuthContext)
+  const { dispatch } = useContext(AuthContext)
   const { value, handleChange } = useForm(initialValue)
   const navigate = useNavigate()
 
@@ -35,7 +35,7 @@ export const LoginPage = () => {
       <div className="w-80 h-[190px] p-4 px-8 flex flex-wrap border-2 border-breaking-200">
         <p className="basis-full  text-center text-breaking-200 font-bold">Login</p>
         <form onSubmit={handleSubmit} className="flex flex-col w-full">
-          <input onChange={handleChange} className="block basis-full my-2 pl-1 border-b-2 border-breaking-200 focus:outline-none focus:border-stone-800" type='text' placeholder="Nombre de usuario" name='username'/>
+          <input onChange={handleChange} autoComplete='off' className="block basis-full my-2 pl-1 border-b-2 border-breaking-200 focus:outline-none focus:border-stone-800" type='text' placeholder="Nombre de usuario" name='username'/>
           <input onChange={handleChange} className="basis-full my-2 pl-1 border-b-2 border-breaking-200 focus:border-stone-800 focus:outline-none" type='password' placeholder="Contraseña" name='password'/>
           <button type="submit" className="w-full p-[.1rem] my-4 border-2 text-breaking-200 border-breaking-200 hover:bg-breaking-200 hover:text-white active:bg-breaking-400 transition duration-75">
             Ingresar
