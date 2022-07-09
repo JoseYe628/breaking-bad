@@ -8,7 +8,7 @@ export const LoginRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<LoginPage/>} />
-        <Route path='/*' element={<AppRouter/>} />
+        <Route path='/*' element={<AppRouter/>}/>
       </Routes>
     </BrowserRouter>
   );

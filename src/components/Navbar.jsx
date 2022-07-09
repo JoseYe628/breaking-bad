@@ -12,11 +12,11 @@ export const Navbar = () => {
 
   const handleLogOut = (e) => {
     e.preventDefault()
+    localStorage.removeItem('user')
     dispatch({
       type: types.logout,
     })
     navigate('/login')
-    localStorage.removeItem('user')
   }
 
   return (
