@@ -25,7 +25,7 @@ export const LoginPage = () => {
         type: types.login,
         payload: value,
       })
-      localStorage.setItem('user', JSON.stringify(value));
+      localStorage.setItem('user', JSON.stringify({...value, logged: true}));
       navigate('/');
     }
   }
