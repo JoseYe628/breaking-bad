@@ -28,6 +28,14 @@ export const LoginPage = () => {
       localStorage.setItem('user', JSON.stringify({...value, logged: true}));
       navigate('/');
     }
+    if(username == 'jorgito' && password == 'jorgito'){
+      dispatch({
+        type: types.login,
+        payload: value,
+      })
+      localStorage.setItem('user', JSON.stringify({...value, logged: true}));
+      navigate('/');
+    }
   }
 
   return (
